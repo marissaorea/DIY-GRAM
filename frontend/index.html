@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+  <title>Instagram</title>
+  <style media="screen">
+
+  body {
+    font-family: 'Shadows Into Light', cursive;
+  }
+  #new-picture-button {
+    background-color: #0CACF1;
+  }
+  nav {
+    background-color:#F10CC0
+  }
+  nav > div {
+    padding-left:20px;
+  }
+  </style>
+
+</head>
+<body>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Instagram</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col s12">
+        <div align="center" style='width:250px;margin:auto;margin-top:50px'>
+          <a id='new-picture-button' class="waves-effect waves-light btn modal-trigger" href="#new-image">Add a new picture</a>
+        </div>
+
+        <div id="new-image" class="modal">
+          <div class="modal-content">
+
+            <form id="photo-form">
+              <label for="image_url">Image Url</label>
+              <input id='image-url' type='text' name='image_url' />
+              <label for="caption">Caption</label>
+              <input id='caption' type='text' name='caption' />
+              <input id='new-image-submit-button' value='Add picture' type='submit' />
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div id='images-container' class="col s6 m12">
+
+      </div>
+
+      <div id="comments">
+
+      </div>
+
+    </div>
+
+
+  </div>
+  <script type="text/javascript" src='src/index.js'></script>
+</body>
+</html>
