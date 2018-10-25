@@ -19,7 +19,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
       list = postJsonObj
       list.forEach((data) => {
         imageContainer.innerHTML += `<div align="center">
-                                      <img src=${data.url} alt="pic" style="width:575px; height:400px;">
+                                      <img src=${data.url} alt="pic" style="width:575px; height:400px;"></img>
+                                      <span>${data.tag}:</span>
                                       <h5 data-id="${data.id}">${data.caption}</h5>
                                       <button data-id="${data.id}" class="waves-light btn"><span>${data.like_count} </span> Likes</button>
                                       <br>
@@ -46,8 +47,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     const inputURL = document.getElementById("image-url").value
     const inputCaption = document.getElementById("caption").value
+    const inputTag = document.getElementById("tag").value
 
     imageContainer.innerHTML += `<div align="center">
+                                    <span>${inputTag}:</span>
                                     <img src=${inputURL} alt="pic" style="width:575px; height:400px;">
                                     <h5>${inputCaption}</h5>
                                     <button id="like-button" class="waves-light btn"><span>0 </span> Likes</button>
@@ -64,6 +67,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         body: JSON.stringify({
           url: inputURL,
           caption: inputCaption,
+          tag: inputTag,
           like_count: 0,
           comments: []
         }) //end of body object
@@ -99,10 +103,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
         },
         body: JSON.stringify({
           like_count: findLike.like_count
-          })
         })
+      })
 
-      } //end of if statement
+    } //end of if statement
 
   }) //end of listener for button
 
@@ -124,7 +128,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }).join('')
 
     imageContainer.innerHTML = newlist
-
   }) //end of event listener
 
 
