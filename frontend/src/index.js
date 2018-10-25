@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
   const addImageButton = document.getElementById("new-picture-button")
   const newImage = document.getElementById("new-image")
   const imageForm = document.getElementById("photo-form")
-
+  const searchField = document.getElementById("search-input")
+  console.log(imageContainer)
 
   let list = []
   let commentList = []
@@ -19,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       list.forEach((data) => {
         imageContainer.innerHTML += `<div align="center">
                                       <img src=${data.url} alt="pic" style="width:575px; height:400px;">
-                                      <h5>${data.caption}</h5>
+                                      <h5 data-id="${data.id}">${data.caption}</h5>
                                       <button data-id="${data.id}" class="waves-light btn"><span>${data.like_count} </span> Likes</button>
                                       <br>
                                       <br>
@@ -106,6 +107,26 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   }) //end of listener for button
 
+  searchField.addEventListener("input", function(event) { //no need to fetch POST/PATCHS
+    const searchInput = searchField.value //assigns variable the input of value.
+
+    const filteredImages = list.filter((image) => {
+      return image.caption.includes(searchInput)
+    })
+
+    let newlist = filteredImages.map((image) => { //entire content of the div and re-rendering
+      return `<div align="center">
+              <img src="${image.url}" alt="pic" style="width:575px; height:400px;">
+              <h5>${image.caption}</h5>
+              <button id="like-button" class="waves-light btn"><span>${image.like_count} </span> Likes</button>
+              <br>
+              </div>
+              <br>`
+    }).join('')
+
+    imageContainer.innerHTML = newlist
+
+  }) //end of event listener
 
 
 
