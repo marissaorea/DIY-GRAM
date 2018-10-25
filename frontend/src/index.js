@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   console.log(imageContainer)
 
   let list = []
-  let commentList = []
+
 
   fetch('http://localhost:3000/images/')
     .then((response) => {
@@ -76,7 +76,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
       }) //push object to new array
   })
   //************************ADDING/POST IMAGES***********************//
-
 
   document.addEventListener("click", function(event) {
     //event delegation
