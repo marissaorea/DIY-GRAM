@@ -32,6 +32,7 @@
   <div class="container">
     <div class="row">
       <div class="col s12">
+
         <div align="center" style='width:250px;margin:auto;margin-top:50px'>
           <a id='new-picture-button' class="waves-effect waves-light btn modal-trigger" href="#new-image">Add a new picture</a>
         </div>
@@ -39,13 +40,17 @@
         <div id="new-image" class="modal">
           <div class="modal-content">
 
-            <form id="photo-form">
+            <form target="_blank" id="photo-form">
               <label for="image_url">Image Url</label>
               <input id='image-url' type='text' name='image_url' />
               <label for="caption">Caption</label>
               <input id='caption' type='text' name='caption' />
-              <input id='new-image-submit-button' value='Add picture' type='submit' />
+              <input id='new-image-submit-button' value='Add picture' type='submit'/>
             </form>
+
+            <div id="comments">
+
+            </div>
 
           </div>
         </div>
